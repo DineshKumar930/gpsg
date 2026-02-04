@@ -1,0 +1,281 @@
+.about-page {
+  min-height: calc(100vh - 200px);
+}
+
+.about-hero {
+  background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.7)), 
+              url('https://picsum.photos/1600/600?random=1');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.overview-section {
+  padding: 4rem 0;
+}
+
+.overview-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.overview-text h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.overview-text p {
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.overview-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.vision-mission {
+  background-color: var(--light-color);
+  padding: 4rem 0;
+}
+
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.vm-card {
+  background-color: var(--bg-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.vm-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.vm-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vm-card li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.vm-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.principals-message {
+  padding: 4rem 0;
+}
+
+.message-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.principal-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.message-text h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+blockquote {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-color);
+  border-left: 4px solid var(--secondary-color);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+.principal-info {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.principal-info h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.principal-info p {
+  color: var(--text-light);
+  margin-bottom: 0.25rem;
+}
+
+.features-section {
+  background-color: var(--light-color);
+  padding: 4rem 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.accreditation-section {
+  padding: 4rem 0;
+}
+
+.accreditation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.accreditation-card {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  border: 2px solid var(--secondary-color);
+}
+
+.accreditation-card h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.accreditation-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.affiliations {
+  text-align: center;
+}
+
+.affiliations h3 {
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.affiliation-logos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.affiliation-logo {
+  padding: 1.5rem 3rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  box-shadow: var(--shadow);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .overview-content,
+  .vm-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .message-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .principal-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .accreditation-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .features-grid,
+  .accreditation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .affiliation-logos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
