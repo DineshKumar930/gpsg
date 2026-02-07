@@ -3,5 +3,5 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === "production" ? "/gpsweb/" : "/",
+  base: '/gpsweb/', // 👈 VERY IMPORTANT
 })
