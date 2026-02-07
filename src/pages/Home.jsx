@@ -4,46 +4,216 @@ import "./Home.css";
 import HeroSection from "../components/home/HeroSection";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { FaArrowRight, FaBriefcase, FaChalkboardTeacher, FaUsers } from "react-icons/fa";
-import { news, placements } from "../data/dummyData";
+
+import { 
+  FaArrowLeft, 
+  FaArrowRight, 
+  FaBriefcase, 
+  FaChalkboardTeacher, 
+  FaFire, 
+  FaUsers,
+  FaGraduationCap,
+  FaBuilding,
+  FaMicroscope,
+  FaCalendarAlt,
+  FaChevronRight,
+  FaExternalLinkAlt,
+  FaNewspaper,
+  FaBullhorn,
+  FaAward,
+  FaHandshake
+} from "react-icons/fa";
 
 const Home = () => {
   const [stats, setStats] = useState({
     students: 0,
     faculty: 0,
     placements: 0,
-    courses: 0
+    courses: 0,
+    companies: 0,
+    labs: 0
   });
 
+  // News data
+  const news = [
+    { id: 1, title: "Annual Sports Meet 2024", date: "2024-12-15", category: "Sports" },
+    { id: 2, title: "New Computer Lab Inauguration", date: "2024-12-10", category: "Infrastructure" },
+    { id: 3, title: "Placement Drive by TCS", date: "2024-12-05", category: "Placements" },
+    { id: 4, title: "Technical Fest 'TechVista'", date: "2024-11-28", category: "Events" },
+    { id: 5, title: "MoU Signed with Industry Partner", date: "2024-11-20", category: "Academics" },
+  ];
+
   useEffect(() => {
-    // Animated counter effect
     const interval = setInterval(() => {
-      setStats(prev => ({
-        students: prev.students < 122 ? prev.students + 100 : 122,
-        faculty: prev.faculty < 16 ? prev.faculty + 10 : 16,
-        placements: prev.placements < 0 ? prev.placements + 40 : 0,
-        courses: prev.courses < 3 ? prev.courses + 2 : 3
+      setStats((prev) => ({
+        students: prev.students < 1800 ? prev.students + 50 : 1800,
+        faculty: prev.faculty < 68 ? prev.faculty + 2 : 68,
+        placements: prev.placements < 92 ? prev.placements + 3 : 92,
+        courses: prev.courses < 8 ? prev.courses + 1 : 8,
+        companies: prev.companies < 120 ? prev.companies + 5 : 120,
+        labs: prev.labs < 15 ? prev.labs + 1 : 15
       }));
-    }, 50);
+    }, 60);
 
     return () => clearInterval(interval);
   }, []);
 
+  // Main banner slider settings
   const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
+  // Campus life slider settings
+  const campusSliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false
+    autoplaySpeed: 4000,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          dots: true
+        }
+      }
+    ]
   };
 
+  // Custom arrow components
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow next-arrow`}
+        style={{ ...style, display: "block", right: "15px" }}
+        onClick={onClick}
+      >
+        <FaArrowRight />
+      </div>
+    );
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={`${className} custom-arrow prev-arrow`}
+        style={{ ...style, display: "block", left: "15px", zIndex: 1 }}
+        onClick={onClick}
+      >
+        <FaArrowLeft />
+      </div>
+    );
+  }
+
   const banners = [
-    { id: 1, title: 'Admissions Open 2026', subtitle: 'Apply Now for Various Programs', image: 'images/admission.png' },
-    { id: 2, title: 'Campus Placement Drive', subtitle: 'Top Companies Visiting Campus', image: 'https://picsum.photos/1200/400?random=2' },
-    { id: 3, title: 'Research Conference', subtitle: 'International Conference on AI', image: 'https://picsum.photos/1200/400?random=3' }
+    {
+      id: 1,
+      title: "Admissions Open 2026",
+      subtitle: "Apply Now for Various Programs",
+      image: "images/main gate.png",
+      cta: "Apply Now"
+    },
+    {
+      id: 2,
+      title: "Industry Interaction Program",
+      subtitle: "Seminar by Digicoder - Skill Training",
+      image: "images/digi.jpg",
+      cta: "Register"
+    },
+    {
+      id: 3,
+      title: "Modern Learning Environment",
+      subtitle: "Engineering Graphics Classroom",
+      image: "images/class1.png",
+      cta: "Explore"
+    },
+  ];
+
+  const campusLife = [
+    {
+      id: 1,
+      title: "Library & Learning Center",
+      description: "Fully equipped library with digital resources",
+      image: "images/akb.jpg"
+    },
+    {
+      id: 2,
+      title: "Sports Facilities",
+      description: "Cricket ground, basketball court & indoor games",
+      image: "images/about.png"
+    },
+    {
+      id: 3,
+      title: "Modern Laboratories",
+      description: "State-of-the-art labs for practical learning",
+      image: "images/acd.jpeg"
+    },
+    {
+      id: 4,
+      title: "Cultural Events",
+      description: "Annual fest and cultural celebrations",
+      image: "images/lib.png"
+    },
+    {
+      id: 5,
+      title: "Campus Infrastructure",
+      description: "Spacious classrooms and green campus",
+      image: "images/mdmeet.jpg"
+    },
+    {
+      id: 6,
+      title: "Campus Infrastructure",
+      description: "Spacious classrooms and green campus",
+      image: "images/acd2.jpeg"
+    },
+    {
+      id: 7,
+      title: "Campus Infrastructure",
+      description: "Spacious classrooms and green campus",
+      image: "images/acd3.jpeg"
+    }
+  ];
+
+  const courses = [
+    {
+      id: 1,
+      title: "Computer Science Engineering",
+      description: "Programming, Software Development & IT Skills",
+      image: "images/cse.jpeg",
+      duration: "3 Years",
+      seats: "60 Seats"
+    },
+    {
+      id: 2,
+      title: "Mechanical Engineering",
+      description: "Manufacturing, Mechanics & Industrial Training",
+      image: "images/me.jpg",
+      duration: "3 Years",
+      seats: "60 Seats"
+    },
+    {
+      id: 3,
+      title: "Electrical Engineering",
+      description: "Power Systems, Machines & Electrical Labs",
+      image: "images/ee.jpg",
+      duration: "3 Years",
+      seats: "60 Seats"
+    },
   ];
 
   return (
@@ -51,17 +221,57 @@ const Home = () => {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Image Slider */}
+      {/* ================= LATEST NEWS TICKER ================= */}
+      <section className="news-ticker-section">
+        <div className="container">
+          <div className="news-ticker-wrapper">
+            <div className="ticker-header">
+              <FaBullhorn className="ticker-icon" />
+              <h3>Latest Updates</h3>
+              <span className="live-dot"></span>
+            </div>
+            <div className="ticker-container">
+              <div className="ticker-content">
+                {news.map((item, index) => (
+                  <div key={item.id} className="ticker-item">
+                    <span className="ticker-category">{item.category}</span>
+                    <span className="ticker-title">{item.title}</span>
+                    <span className="ticker-date">
+                      <FaCalendarAlt /> {new Date(item.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <a href="/news" className="view-all-news">
+              View All <FaChevronRight />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= IMAGE SLIDER ================= */}
       <section className="slider-section">
         <div className="container">
           <Slider {...sliderSettings} className="banner-slider">
-            {banners.map(banner => (
+            {banners.map((banner) => (
               <div key={banner.id} className="banner-slide">
-                <img src={banner.image} alt={banner.title} className="banner-image" />
+                <div className="banner-image-container">
+                  <img
+                    src={banner.image}
+                    alt={banner.title}
+                    className="banner-image"
+                    loading="lazy"
+                  />
+                  <div className="banner-overlay"></div>
+                </div>
                 <div className="banner-content">
+                  <div className="banner-badge">Featured</div>
                   <h2>{banner.title}</h2>
                   <p>{banner.subtitle}</p>
-                  <button className="btn">Learn More</button>
+                  <button className="btn btn-primary banner-btn">
+                    {banner.cta} <FaArrowRight />
+                  </button>
                 </div>
               </div>
             ))}
@@ -69,120 +279,234 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Stats */}
-      <section className="stats-section">
-        <div className="container">
-          <h2 className="section-title">College at a Glance</h2>
-          <div className="stats-grid">
-            <div className="stat-card">
-              <FaUsers className="stat-icon" />
-              <h3>{stats.students.toLocaleString()}+</h3>
-              <p>Students Enrolled</p>
-            </div>
-            <div className="stat-card">
-              <FaChalkboardTeacher className="stat-icon" />
-              <h3>{stats.faculty}+</h3>
-              <p>Faculty Members & Supporting Staff</p>
-            </div>
-            <div className="stat-card">
-              <FaBriefcase className="stat-icon" />
-              <h3>{stats.placements.toLocaleString()}+</h3>
-              <p>Placements</p>
-            </div>
-            <div className="stat-card">
-              <FaChalkboardTeacher className="stat-icon" />
-              <h3>{stats.courses}+</h3>
-              <p>Courses Offered</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Latest News */}
-      <section className="news-section">
+      {/* ================= COURSES SECTION ================= */}
+      <section className="courses-section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Latest News & Notices</h2>
-            <a href="/news" className="view-all">
-              View All <FaArrowRight />
-            </a>
+            <h2 className="section-title">
+              <FaGraduationCap /> Our Courses
+            </h2>
+            <p className="section-subtitle">Industry-relevant diploma programs for bright careers</p>
           </div>
-          <div className="news-grid">
-            {news.map(item => (
-              <div key={item.id} className="news-card">
-                <div className="news-category">{item.category}</div>
-                <h3>{item.title}</h3>
-                <p className="news-date">{new Date(item.date).toLocaleDateString()}</p>
-                <p>{item.description}</p>
-                <button className="btn btn-secondary">Read More</button>
+          
+          <div className="courses-grid">
+            {courses.map((course) => (
+              <div key={course.id} className="course-card">
+                <div className="course-image-container">
+                  <img src={course.image} alt={course.title} loading="lazy" />
+                  <div className="course-overlay">
+                    <div className="course-info">
+                      <span>{course.duration}</span>
+                      <span>{course.seats}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="course-content">
+                  <h3>{course.title}</h3>
+                  <p>{course.description}</p>
+                  <a href={`/courses/${course.id}`} className="course-link">
+                    Learn More <FaChevronRight />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Placement Highlights */}
-      {/* Career Vision Section */}
-<section className="career-vision">
-  <div className="container">
+      {/* ================= DIRECTOR MESSAGE ================= */}
+      <section className="director-section">
+        <div className="container">
+          <div className="director-wrapper">
+            <div className="director-image">
+              <img src="images/dir.png" alt="Director" loading="lazy" />
+              <div className="director-badge">
+                <FaAward /> Director
+              </div>
+            </div>
+            <div className="director-content">
+              <div className="section-header">
+                <h2 className="section-title">
+                  <FaHandshake /> Director's Message
+                </h2>
+              </div>
+              <div className="message-card">
+                <blockquote>
+                  "हमारे राजकीय पॉलिटेक्निक संस्थान में आपका हार्दिक स्वागत है।
+                  हम गुणवत्तापूर्ण तकनीकी शिक्षा, व्यावहारिक प्रशिक्षण तथा मूल्य-आधारित शिक्षण के माध्यम से कुशल, सक्षम एवं जिम्मेदार अभियंताओं के निर्माण के लिए प्रतिबद्ध हैं, जो भविष्य की चुनौतियों का आत्मविश्वास के साथ सामना कर सकें।"
+                </blockquote>
+                <div className="director-details">
+                  <h4>Director, CSC SPV</h4>
+                  <p>Government Polytechnic College</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h2 className="section-title">
-      Building Careers • Shaping Futures
-    </h2>
+      {/* ================= COLLEGE AT A GLANCE ================= */}
+      <section className="stats-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <FaBuilding /> College at a Glance
+            </h2>
+            <p className="section-subtitle">Our achievements and milestones</p>
+          </div>
+          
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaUsers />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.students.toLocaleString()}+</h3>
+                <p>Students Enrolled</p>
+              </div>
+            </div>
+            
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaChalkboardTeacher />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.faculty}+</h3>
+                <p>Faculty & Staff</p>
+              </div>
+            </div>
+            
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaBriefcase />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.placements}%</h3>
+                <p>Placement Rate</p>
+              </div>
+            </div>
+            
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaGraduationCap />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.courses}+</h3>
+                <p>Courses Offered</p>
+              </div>
+            </div>
+            
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaHandshake />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.companies}+</h3>
+                <p>Company Tie-ups</p>
+              </div>
+            </div>
+            
+            <div className="stat-card">
+              <div className="stat-icon-wrapper">
+                <FaMicroscope />
+              </div>
+              <div className="stat-content">
+                <h3>{stats.labs}+</h3>
+                <p>Modern Labs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <p className="vision-subtitle">
-      Established in 2025, our institute is focused on creating strong academic
-      foundations, industry-ready skills, and future placement opportunities.
-    </p>
+      {/* ================= CAMPUS LIFE ================= */}
+      <section className="campus-life-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <FaBuilding /> Campus Life
+            </h2>
+            <p className="section-subtitle">Experience our vibrant campus environment</p>
+          </div>
+          
+          <div className="campus-slider-wrapper">
+            <Slider {...campusSliderSettings} className="campus-slider">
+              {campusLife.map((item) => (
+                <div key={item.id} className="campus-slide">
+                  <div className="campus-image-container">
+                    <img src={item.image} alt={item.title} loading="lazy" />
+                    <div className="campus-overlay"></div>
+                  </div>
+                  <div className="campus-content">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          
+          <div className="campus-highlights">
+            <div className="highlight-item">
+              <div className="highlight-icon">🏆</div>
+              <h4>Sports Excellence</h4>
+              <p>State-level achievements</p>
+            </div>
+            <div className="highlight-item">
+              <div className="highlight-icon">🎭</div>
+              <h4>Cultural Events</h4>
+              <p>Annual fest & competitions</p>
+            </div>
+            <div className="highlight-item">
+              <div className="highlight-icon">🔬</div>
+              <h4>Research & Innovation</h4>
+              <p>Projects & workshops</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div className="vision-cards">
-      <div className="vision-card">
-        <span className="badge">2025</span>
-        <h3>New-Age Institute</h3>
-        <p>
-          A modern government polytechnic built with future-focused education,
-          smart classrooms, and advanced labs.
-        </p>
-      </div>
-
-      <div className="vision-card highlight">
-        <span className="badge">Skill First</span>
-        <h3>Industry-Oriented Learning</h3>
-        <p>
-          Emphasis on practical knowledge, hands-on training, projects, and
-          real-world problem solving.
-        </p>
-      </div>
-
-      <div className="vision-card">
-        <span className="badge">In Progress</span>
-        <h3>Training & Placement Cell</h3>
-        <p>
-          Dedicated cell for internships, industrial training, soft skills,
-          and upcoming placement collaborations.
-        </p>
-      </div>
-    </div>
-
-    {/* Roadmap */}
-    <div className="career-roadmap">
-      <h3>Our Career Roadmap</h3>
-
-      <div className="roadmap-steps">
-        <div className="step active">Foundation</div>
-        <div className="step active">Skill Development</div>
-        <div className="step">Industry Exposure</div>
-        <div className="step">Placements</div>
-      </div>
-
-      <p className="roadmap-note">
-        Placement activities will commence once the first batch becomes eligible.
-      </p>
-    </div>
-
-  </div>
-</section>
-
+      {/* ================= LATEST NEWS SECTION ================= */}
+      <section className="news-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <FaNewspaper /> Latest News & Events
+            </h2>
+            <a href="/news" className="view-all-btn">
+              View All News <FaExternalLinkAlt />
+            </a>
+          </div>
+          
+          <div className="news-grid">
+            {news.slice(0, 3).map((item) => (
+              <div key={item.id} className="news-card">
+                <div className="news-card-header">
+                  <span className={`news-category category-${item.category.toLowerCase()}`}>
+                    {item.category}
+                  </span>
+                  <span className="news-date">
+                    <FaCalendarAlt /> {new Date(item.date).toLocaleDateString('en-IN', { 
+                      day: 'numeric', 
+                      month: 'long', 
+                      year: 'numeric' 
+                    })}
+                  </span>
+                </div>
+                <div className="news-card-body">
+                  <h3>{item.title}</h3>
+                  <p>Stay updated with the latest happenings at our campus...</p>
+                </div>
+                <div className="news-card-footer">
+                  <a href={`/news/${item.id}`} className="news-link">
+                    Read More <FaChevronRight />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

@@ -32,15 +32,15 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <span>123 College Street, City, State 123456</span>
+                <span> Hardi,Hasanpur, Magahar, Tahsil-Sahjanwa, Gorakhpur -273209, Uttar Pradesh</span>
               </div>
               <div className="contact-item">
                 <FaPhone />
-                <span>+1 (234) 567-8900</span>
+                <span>+91 8709413223</span>
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <span>info@techuniversity.edu</span>
+                <span>govtpolytechnicsahjanwa@gmail.com</span>
               </div>
             </div>
           </div>

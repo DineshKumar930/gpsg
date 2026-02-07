@@ -181,19 +181,7 @@
   font-size: 1.1rem;
 }
 
-.newsletter {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-  border-radius: 15px;
-  padding: 3rem;
-  margin-top: 3rem;
-  color: white;
-}
 
-.newsletter-content {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
 
 .newsletter-content h3 {
   font-size: 2rem;

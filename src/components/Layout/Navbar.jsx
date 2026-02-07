@@ -71,37 +71,34 @@ const Navbar = () => {
       path: "/academics",
       label: "Academics",
       dropdown: [
-        { path: "/academics/departments", label: "Departments" },
-        { path: "/academics/courses", label: "Courses" },
-        { path: "/academics/faculty", label: "Faculty" },
-        { path: "/academics/calendar", label: "Academic Calendar" },
-        { path: "/academics/achievements", label: "Achievements" },
+        
+        { path: "/courses", label: "Courses" },
+        { path: "/faculty", label: "Faculty" },
+        { path: "/calendar", label: "Academic Calendar" },
       ],
     },
-    { path: "/admissions", label: "Admissions" },
+    { path: "/admission", label: "Admissions" },
     {
       path: "/student-corner",
       label: "Student Corner",
       dropdown: [
-        { path: "/student-corner/syllabus", label: "Syllabus" },
-        { path: "/student-corner/timetable", label: "Time Table" },
-        { path: "/student-corner/results", label: "Results" },
-        { path: "/student-corner/e-resources", label: "E-Learning Resources" },
-        { path: "/student-corner/library", label: "Digital Library" },
+        { path: "/syllabus", label: "Syllabus" },
+        { path: "/timetable", label: "Time Table" },
+        
       ],
     },
     { 
       path: "/campus-life", 
       label: "Campus Life",
       dropdown: [
-        { path: "/campus-life/events", label: "Events & Activities" },
-        { path: "/campus-life/gallery", label: "Photo Gallery" },
-        { path: "/campus-life/sports", label: "Sports Facilities" },
-        { path: "/campus-life/clubs", label: "Student Clubs" },
+        { path: "events", label: "Events & Activities" },
+        { path: "gallery", label: "Photo Gallery" },
+        { path: "/sports", label: "Sports Facilities" },
       ]
     },
-    { path: "/placements", label: "Placements" },
+   
     { path: "/contact", label: "Contact Us" },
+     { path: "/news", label: "NewsSection" },
   
   ];
 

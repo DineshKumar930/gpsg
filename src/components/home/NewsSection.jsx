@@ -127,23 +127,7 @@ const NewsSection = () => {
           </div>
         )}
 
-        <div className="newsletter">
-          <div className="newsletter-content">
-            <h3>Subscribe to Our Newsletter</h3>
-            <p>Get latest updates about admissions, events, and campus news.</p>
-            <form className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="newsletter-input"
-                required
-              />
-              <button type="submit" className="btn btn-primary">
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

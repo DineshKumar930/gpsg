@@ -4,10 +4,9 @@ import { FaAward, FaBuilding, FaCheckCircle, FaUsers } from "react-icons/fa";
 
 const About = () => {
   const accreditations = [
-    { id: 1, name: 'NAAC A++', year: '2023' },
-    { id: 2, name: 'UGC Approved', year: '1990' },
-    { id: 3, name: 'ISO 9001:2015', year: '2020' },
-    { id: 4, name: 'NBA Accredited', year: '2022' }
+    { id: 1, name: 'AICTE', year: '2025' },
+    { id: 2, name: 'BTE U.P', year: '2025' },
+  
   ];
 
   const features = [
@@ -39,7 +38,7 @@ const About = () => {
       <section className="about-hero">
         <div className="container">
           <h1>About Government Polytechnic Sahjanwa Gorakhpur</h1>
-          <p className="subtitle">Pioneering Education Since 2018</p>
+          <p className="subtitle">Pioneering Education Since 2025</p>
         </div>
       </section>
 
@@ -50,7 +49,7 @@ const About = () => {
             <div className="overview-text">
               <h2>Our Legacy</h2>
               <p>
-                Established in 2018, Government Polytechnic Sahjanwa Gorakhpur has been at the forefront of technical education,
+                Established in 2025, Government Polytechnic Sahjanwa Gorakhpur has been at the forefront of technical education,
                 fostering innovation, research, and holistic development. We are committed to providing
                 world-class education that empowers students to become leaders in their fields.
               </p>
@@ -96,19 +95,17 @@ const About = () => {
         <div className="container">
           <div className="message-content">
             <div className="principal-image">
-              <img src="https://picsum.photos/300/400?random=5" alt="Principal" />
+              <img src="/images/principal.jpg" alt="Principal" title="Principal GPS" />
             </div>
             <div className="message-text">
               <h2>Message from the Principal</h2>
               <blockquote>
-                "At Government Polytechnic Sahjanwa Gorakhpur, we believe in empowering students with knowledge, skills, and values
-                that prepare them for the challenges of the 21st century. Our focus is on holistic development,
-                blending academic excellence with extracurricular activities to shape well-rounded individuals."
+                "राजकीय पॉलिटेक्निक सहजनवा, गोरखपुर में हम विद्यार्थियों को ऐसे ज्ञान, कौशल एवं मूल्यों से सशक्त बनाने में विश्वास रखते हैं, जो उन्हें इक्कीसवीं सदी की चुनौतियों का सामना करने के लिए तैयार करें। हमारा उद्देश्य समग्र विकास है, जहाँ शैक्षणिक उत्कृष्टता के साथ-साथ सह-पाठ्यक्रम गतिविधियों के माध्यम से विद्यार्थियों के सर्वांगीण व्यक्तित्व का निर्माण किया जाता है।"
               </blockquote>
               <div className="principal-info">
                 <h4>Dr. Ravi Kant Ranjan</h4>
                 <p>Principal, Govt. Polytechnic Sahjanwa Gorakhpur</p>
-                <p>Ph.D (NIT Patana), 7+ years of experience</p>
+                <p>Ph.D (NIT Patna), 8+ years of experience</p>
               </div>
             </div>
           </div>
@@ -134,7 +131,7 @@ const About = () => {
       {/* Accreditation & Affiliations */}
       <section className="accreditation-section">
         <div className="container">
-          <h2 className="section-title">Accreditation & Affiliations</h2>
+          <h2 className="section-title">Affiliations</h2>
           <div className="accreditation-grid">
             {accreditations.map((acc) => (
               <div key={acc.id} className="accreditation-card">
@@ -143,15 +140,7 @@ const About = () => {
               </div>
             ))}
           </div>
-          <div className="affiliations">
-            <h3>Affiliated with:</h3>
-            <div className="affiliation-logos">
-              <div className="affiliation-logo">AICTE</div>
-              <div className="affiliation-logo">UGC</div>
-              <div className="affiliation-logo">AIU</div>
-              <div className="affiliation-logo">COA</div>
-            </div>
-          </div>
+         
         </div>
       </section>
     </div>
