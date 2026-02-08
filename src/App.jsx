@@ -1,3 +1,5 @@
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import "./App.css";
 import About from "./pages/About";
 import AcademicCalendar from "./pages/AcademicCalendar";
