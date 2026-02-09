@@ -57,18 +57,18 @@ const galleryImages = [
   },
   { 
     id: 5,
-    src: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "Annual Sports Championship",
-    category: "Sports",
+    src: "images/mdmeet.jpg", 
+    title: "CSC MD Visit",
+    category: "Academic",
     date: "October 2, 2025",
-    description: "Inter-college sports competition featuring track events and team games.",
+    description: "Visit by Chief Secretary of the state to inspect college facilities and programs.",
     likes: 421
   },
   { 
     id: 6,
-    src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "Cultural Fest Extravaganza",
-    category: "Cultural",
+    src: "images/group.jpeg", 
+    title: "Emotional Intelligence Workshop",
+    category: "Mental Health",
     date: "October 20, 2025",
     description: "Three-day cultural festival with music, dance, drama and art exhibitions.",
     likes: 567,
@@ -76,7 +76,7 @@ const galleryImages = [
   },
   { 
     id: 7,
-    src: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
+    src: "images/ind.jpg", 
     title: "Industrial Visit",
     category: "Academic",
     date: "November 5, 2025",
@@ -85,21 +85,21 @@ const galleryImages = [
   },
   { 
     id: 8,
-    src: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "International Conference",
-    category: "Academic",
-    date: "November 15, 2025",
-    description: "Global summit with keynote speakers and research paper presentations.",
+    src: "images/sar1.jpeg", 
+    title: "Saroswati Pooja & Cultural Fest",
+    category: "Cultural",
+    date: "January 13, 2026",
+    description: "Cultural festival with Saraswati Pooja, music, dance and art exhibitions.",
     likes: 312
   },
   { 
     id: 9,
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "Annual Function Gala",
+    src: "images/sar2.jpeg", 
+    title: "Saroswati Pooja & Cultural Fest",
     category: "Cultural",
-    date: "December 10, 2025",
-    description: "Grand annual function with celebrity performances and award distribution.",
-    likes: 489
+    date: "January 13, 2026",
+    description: "Cultural festival with Saraswati Pooja, music, dance and art exhibitions.",
+    likes: 342
   },
   { 
     id: 10,
@@ -112,22 +112,44 @@ const galleryImages = [
   },
   { 
     id: 11,
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "Art & Craft Exhibition",
+    src: "images/inde.jpg", 
+    title: "Independence Day Celebration",
     category: "Cultural",
-    date: "January 25, 2026",
-    description: "Student artwork and craft exhibition with live demonstration sessions.",
+    date: "August 15, 2025",
+    description: "Flag hoisting ceremony followed by patriotic performances and cultural events.",
     likes: 167
   },
   { 
     id: 12,
-    src: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", 
-    title: "Coding Competition",
-    category: "Technical",
-    date: "February 5, 2026",
-    description: "24-hour hackathon and coding competition for tech enthusiasts.",
+    src: "images/about.png", 
+    title: "Campus Orientation Program",
+    category: "Academic",
+    date: "July 22, 2025",
+    description: "Orientation program for new students with campus tours and academic guidance.",
     likes: 345
+  },
+   { 
+    id: 13,
+    src: "images/akb.jpg", 
+    title: "Seminar on Artificial Intelligence",
+    category: "Academic",
+    date: "January 26, 2026",
+    description: "Seminar on AI with industry experts and interactive sessions.",
+    likes: 312,
+    featured: true
   }
+  ,
+   { 
+    id: 14,
+    src: "images/acd5.jpeg", 
+    title: "Republic Day Celebration",
+    category: "Cultural",
+    date: "January 26, 2026",
+    description: "Flag hoisting ceremony followed by patriotic performances and cultural events.",
+    likes: 312,
+    featured: true
+  }
+
 ];
 
 const categories = ["All", "Featured", "Academic", "Cultural", "Technical", "Sports"];

@@ -6,53 +6,55 @@ const NewsSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const newsItems = [
+   
     {
       id: 1,
-      title: 'Annual Tech Fest 2024',
-      date: '2024-03-15',
-      description: 'Join us for the biggest technical festival of the year with workshops, competitions, and guest lectures.',
-      category: 'event',
-      image: 'https://picsum.photos/400/250?random=9'
-    },
-    {
-      id: 2,
-      title: 'Admissions Open for 2024 Batch',
-      date: '2024-03-10',
-      description: 'Apply now for various undergraduate and postgraduate programs. Early bird discounts available.',
+      title: 'Admissions Open for 2026-27 Batch',
+      date: '2026-03-10',
+      description: 'Admissions open for CSE, EE, and ME. Join us for quality education and a bright career.',
       category: 'admission',
-      image: 'https://picsum.photos/400/250?random=10'
+      image: './images/admission.png'
+    },
+
+     {
+      id: 2,
+      title: 'Parent Teacher Meeting Scheduled',
+      date: '2026-02-14',
+      description: 'Parent-teacher meetings scheduled for all classes. Please check your email for meeting details.',
+      category: 'event',
+      image: './images/ptm.jpg'
     },
     {
       id: 3,
-      title: 'Research Paper Publication',
-      date: '2024-03-05',
-      description: 'Faculty members publish groundbreaking research in AI and Machine Learning in international journals.',
-      category: 'achievement',
-      image: 'https://picsum.photos/400/250?random=11'
+      title: 'Industrial Visit to Tech Park',
+      date: '2026-02-24',
+      description: 'Students and faculty visited a leading tech park to gain insights into industry practices.',
+      category: 'event',
+      image: './images/ind.jpg'
     },
     {
       id: 4,
-      title: 'Campus Placement Drive',
-      date: '2024-02-28',
-      description: 'Top companies visiting campus for placement drives. Prepare your resume and get ready.',
-      category: 'placement',
-      image: 'https://picsum.photos/400/250?random=12'
+      title: 'Dr. Ambedkar Jayanti Celebration',
+      date: '2026-04-14',
+      description: 'Celebrating the birth anniversary of Dr. B.R. Ambedkar with cultural programs and awareness sessions.',
+      category: 'cultural',
+      image: './images/amb.jpg'
     },
     {
       id: 5,
       title: 'Sports Tournament Winners',
-      date: '2024-02-20',
-      description: 'Our basketball team wins inter-college tournament. Celebration ceremony scheduled.',
+      date: '2026-03-12',
+      description: 'Our Kabaddi team wins inter-college tournament. Celebration ceremony scheduled.',
       category: 'sports',
-      image: 'https://picsum.photos/400/250?random=13'
+      image: '/images/sport.png'
     },
     {
       id: 6,
-      title: 'New Laboratory Inauguration',
-      date: '2024-02-15',
-      description: 'State-of-the-art robotics lab inaugurated with latest equipment and technology.',
+      title: 'Health Check-up Camp Organized',
+      date: '2026-02-26',
+      description: 'Comprehensive health check-up camp organized for all students and faculty members.',
       category: 'facilities',
-      image: 'https://picsum.photos/400/250?random=14'
+      image: './images/health.jpg'
     }
   ];
 

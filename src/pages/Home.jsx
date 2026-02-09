@@ -4,10 +4,12 @@ import "./Home.css";
 import HeroSection from "../components/home/HeroSection";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 import { 
   FaArrowLeft, 
   FaArrowRight, 
+  FaChartLine,
   FaBriefcase, 
   FaChalkboardTeacher, 
   FaFire, 
@@ -25,6 +27,7 @@ import {
 } from "react-icons/fa";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     students: 0,
     faculty: 0,
@@ -36,9 +39,9 @@ const Home = () => {
 
   // News data
   const news = [
-    { id: 1, title: "Annual Sports Meet 2024", date: "2024-12-15", category: "Sports" },
-    { id: 2, title: "New Computer Lab Inauguration", date: "2024-12-10", category: "Infrastructure" },
-    { id: 3, title: "Placement Drive by TCS", date: "2024-12-05", category: "Placements" },
+    { id: 1, title: "Parent-Teacher Meeting", date: "2026-02-14", category: "Education / School Events" },
+    { id: 2, title: "Industrial Visit", date: "2026-02-24", category: "Education / Experiential Learning" },
+    { id: 3, title: "Dr. B.R. Ambedkar Jayanti", date: "2026-04-14", category: "Cultural Events" },
     { id: 4, title: "Technical Fest 'TechVista'", date: "2024-11-28", category: "Events" },
     { id: 5, title: "MoU Signed with Industry Partner", date: "2024-11-20", category: "Academics" },
   ];
@@ -46,12 +49,10 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setStats((prev) => ({
-        students: prev.students < 1800 ? prev.students + 50 : 1800,
-        faculty: prev.faculty < 68 ? prev.faculty + 2 : 68,
-        placements: prev.placements < 92 ? prev.placements + 3 : 92,
-        courses: prev.courses < 8 ? prev.courses + 1 : 8,
-        companies: prev.companies < 120 ? prev.companies + 5 : 120,
-        labs: prev.labs < 15 ? prev.labs + 1 : 15
+        students: prev.students < 122 ? prev.students + 122 : 122,
+        faculty: prev.faculty < 15 ? prev.faculty + 15 : 15,
+        courses: prev.courses < 3 ? prev.courses + 3 : 3,
+        placements: prev.placements < 95 ? prev.placements + 95 : 95,
       }));
     }, 60);
 
@@ -142,6 +143,27 @@ const Home = () => {
       image: "images/class1.png",
       cta: "Explore"
     },
+    {
+      id: 4,
+      title: "Award Distribution Ceremony",
+      subtitle: "Recognizing Student Achievements",
+      image: "images/acd3.jpeg",
+      cta: "Explore"
+    },
+    {
+      id: 5,
+      title: "Saroswati Puja Celebration",
+      subtitle: "Celebrating Academic Excellence",
+      image: "images/sar1.jpeg",
+      cta: "View Gallery"
+    },
+      {
+      id: 6,
+      title: "CSC MD Visit",
+      subtitle: "Inspiring Leadership & Vision",
+      image: "images/mdmeet.jpg",
+      cta: "View Gallery"
+    },
   ];
 
   const campusLife = [
@@ -153,20 +175,20 @@ const Home = () => {
     },
     {
       id: 2,
-      title: "Sports Facilities",
-      description: "Cricket ground, basketball court & indoor games",
-      image: "images/about.png"
+      title: "CSC MD Visit",
+      description: "Inspiring leadership and vision for our institution",
+      image: "images/pep5.jpeg"
     },
     {
       id: 3,
-      title: "Modern Laboratories",
-      description: "State-of-the-art labs for practical learning",
-      image: "images/acd.jpeg"
+      title: "Seminar on Artificial Intelligence",
+      description: "Interactive seminar on AI with industry experts",
+      image: "images/pep.jpeg"
     },
     {
       id: 4,
-      title: "Cultural Events",
-      description: "Annual fest and cultural celebrations",
+      title: "Library & Learning Center",
+      description: "Fully equipped library with digital resources",
       image: "images/lib.png"
     },
     {
@@ -304,9 +326,13 @@ const Home = () => {
                 <div className="course-content">
                   <h3>{course.title}</h3>
                   <p>{course.description}</p>
-                  <a href={`/courses/${course.id}`} className="course-link">
-                    Learn More <FaChevronRight />
-                  </a>
+                  <a
+      onClick={() => navigate(`/courses`)}
+      className="course-link"
+      style={{ cursor: "pointer" }}
+    >
+      Learn More <FaChevronRight />
+    </a>
                 </div>
               </div>
             ))}
@@ -326,7 +352,7 @@ const Home = () => {
             </div>
             <div className="director-content">
               <div className="section-header">
-                <h2 className="section-title">
+                <h2 className="section-title-dr">
                   <FaHandshake /> Director's Message
                 </h2>
               </div>
@@ -347,77 +373,58 @@ const Home = () => {
 
       {/* ================= COLLEGE AT A GLANCE ================= */}
       <section className="stats-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              <FaBuilding /> College at a Glance
-            </h2>
-            <p className="section-subtitle">Our achievements and milestones</p>
-          </div>
-          
-          <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaUsers />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.students.toLocaleString()}+</h3>
-                <p>Students Enrolled</p>
-              </div>
-            </div>
-            
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaChalkboardTeacher />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.faculty}+</h3>
-                <p>Faculty & Staff</p>
-              </div>
-            </div>
-            
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaBriefcase />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.placements}%</h3>
-                <p>Placement Rate</p>
-              </div>
-            </div>
-            
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaGraduationCap />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.courses}+</h3>
-                <p>Courses Offered</p>
-              </div>
-            </div>
-            
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaHandshake />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.companies}+</h3>
-                <p>Company Tie-ups</p>
-              </div>
-            </div>
-            
-            <div className="stat-card">
-              <div className="stat-icon-wrapper">
-                <FaMicroscope />
-              </div>
-              <div className="stat-content">
-                <h3>{stats.labs}+</h3>
-                <p>Modern Labs</p>
-              </div>
-            </div>
-          </div>
+  <div className="container">
+    <div className="section-header">
+      <h2 className="section-title">
+        <FaBuilding /> College at a Glance
+      </h2>
+      <p className="section-subtitle">Our achievements and milestones</p>
+    </div>
+    
+    <div className="stats-grid">
+      <div className="stat-card">
+        <div className="stat-icon-wrapper">
+          <FaUsers />
         </div>
-      </section>
+        <div className="stat-content">
+          <h3>{stats.students.toLocaleString()}+</h3>
+          <p>Students Enrolled</p>
+        </div>
+      </div>
+      
+      <div className="stat-card">
+        <div className="stat-icon-wrapper">
+          <FaChalkboardTeacher />
+        </div>
+        <div className="stat-content">
+          <h3>{stats.faculty}+</h3>
+          <p>Faculty & Staff</p>
+        </div>
+      </div>
+      
+      <div className="stat-card">
+        <div className="stat-icon-wrapper">
+          <FaGraduationCap />
+        </div>
+        <div className="stat-content">
+          <h3>{stats.courses}+</h3>
+          <p>Courses Offered</p>
+        </div>
+      </div>
+             <div className="stat-card">
+        <div className="stat-icon-wrapper">
+          <FaChartLine />
+        </div>
+        <div className="stat-content">
+          <h3>{stats.placements}%</h3>
+          <p>Placement Rate</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
 
       {/* ================= CAMPUS LIFE ================= */}
       <section className="campus-life-section">

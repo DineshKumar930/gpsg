@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
+    { path: '/', label: 'Home' },
     { path: '/about', label: 'About Us' },
-    { path: '/academics', label: 'Academics' },
     { path: '/admissions', label: 'Admissions' },
-    { path: '/placements', label: 'Placements' },
     { path: '/contact', label: 'Contact' }
   ];
 
@@ -61,11 +60,10 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Important Links</h4>
             <ul className="footer-links">
-              <li><Link to="/student-corner">Student Corner</Link></li>
-              <li><Link to="/campus-life">Campus Life</Link></li>
-              <li><Link to="/academics/faculty">Faculty Directory</Link></li>
-              <li><Link to="/academics/courses">Course Catalog</Link></li>
-              <li><Link to="/placements">Placement Cell</Link></li>
+              <li><Link to="/">Student Corner</Link></li>
+              <li><Link to="/events">Campus Life</Link></li>
+              <li><Link to="/faculty">Faculty Directory</Link></li>
+              <li><Link to="/courses">Course Catalog</Link></li>
             </ul>
           </div>
 

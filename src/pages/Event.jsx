@@ -1,26 +1,28 @@
 import "./Event.css";
 import React, { useEffect, useState } from "react";
 import { Calendar, ChevronLeft, ChevronRight, Clock, MapPin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const upcomingEvents = [
+  
   { 
     id: 1,
-    title: "Republic Day Celebration", 
-    date: "26 January 2026", 
+    title: "Parent-Teacher Meeting", 
+    date: "14 February 2026", 
     time: "9:00 AM",
-    venue: "Main Ground",
-    description: "Join us for flag hoisting and cultural performances celebrating India's Republic Day.",
-    image: "https://images.unsplash.com/photo-1545696563-af8f6ec2295a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    venue: "Campus Auditorium",
+    description: "Join us for parent-teacher meetings to discuss student progress and academic performance.",
+    image: "./images/ptm.jpg",
     category: "Cultural"
   },
   { 
     id: 2,
-    title: "Tech Fest 2026", 
-    date: "10 February 2026", 
+    title: "Industrial Visit to Tech Park", 
+    date: "24 February 2026", 
     time: "10:00 AM - 6:00 PM",
-    venue: "Seminar Hall & Labs",
-    description: "Annual technology festival featuring workshops, hackathons, and guest lectures.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    venue: "Soon to be announced",
+    description: "Industrial visit to a leading tech park featuring workshops, hackathons, and guest lectures.",
+    image: "./images/ind.jpg",
     category: "Technical"
   },
   { 
@@ -30,7 +32,7 @@ const upcomingEvents = [
     time: "8:00 AM",
     venue: "Sports Complex",
     description: "Inter-college athletic competitions and sports events.",
-    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: "./images/sport.png",
     category: "Sports"
   },
 ];
@@ -38,49 +40,50 @@ const upcomingEvents = [
 const pastEvents = [
   { 
     id: 1,
-    title: "Annual Function", 
-    date: "10 December 2025",
+    title: "Voter Pledge Program", 
+    date: "24 January 2026",
     category: "Cultural",
-    highlights: ["Dance Performances", "Award Ceremony", "Cultural Shows"]
+    highlights: ["Voter Pledge Ceremony", "Voter Education", "Event Documentation"]
   },
   { 
     id: 2,
-    title: "Alumni Meet", 
-    date: "22 December 2025",
-    category: "Networking",
-    highlights: ["Alumni Talks", "Networking Session", "Campus Tour"]
+    title: "Saraswati Pooja Program", 
+    date: "13 January 2026",
+    category: "Cultural",
+    highlights: ["Saraswati Puja", "Cultural Programs", "Campus Tour"]
   },
   { 
     id: 3,
-    title: "Career Guidance Seminar", 
-    date: "15 November 2025",
+    title: "Webinar on Generative AI", 
+    date: "17 January 2026",
     category: "Academic",
-    highlights: ["Industry Experts", "Resume Building", "Interview Skills"]
+    highlights: ["AI Overview", "Resume Building", "Career Opportunities"]
   },
   { 
     id: 4,
-    title: "Industrial Visit", 
-    date: "05 November 2025",
-    category: "Technical",
-    highlights: ["Factory Tour", "Technical Sessions", "Industry Exposure"]
+    title: "Emotional Intelligence Workshop", 
+    date: "10 January 2026",
+    category: "Mental Health",
+    highlights: ["Emotional Awareness", "Stress Management", "Wellness Practices"]
   },
   { 
     id: 5,
-    title: "Cultural Fest", 
-    date: "20 October 2025",
-    category: "Cultural",
-    highlights: ["Music Concerts", "Dance Competitions", "Art Exhibitions"]
+    title: "CSC MD Visit", 
+    date: "26 November 2026",
+    category: "Academic",
+    highlights: ["Academic Visit", "Inauguration Ceremony", "Campus Tour"]
   },
   { 
     id: 6,
-    title: "Sports Meet", 
+    title: "Seminar on Artificial Intelligence", 
     date: "02 October 2025",
-    category: "Sports",
-    highlights: ["Track Events", "Team Sports", "Prize Distribution"]
+    category: "Academic",
+    highlights: ["AI Overview", "Career Opportunities", "Hands-on Session"]
   },
 ];
 
 const Event = () => {
+   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [filter, setFilter] = useState('all');
 
@@ -221,7 +224,12 @@ const Event = () => {
                 ))}
               </div>
               <div className="past-event-footer">
-                <button className="view-gallery-btn">View Gallery</button>
+    <button
+        className="view-gallery-btn"
+        onClick={() => navigate("/gallery")}
+      >
+        View Gallery
+      </button>
               </div>
             </div>
           ))}

@@ -1,312 +1,237 @@
 import "./Faculty.css";
 import React, { useEffect, useState } from "react";
+import { Award, BookOpen, Briefcase, Calendar, ChevronRight, Globe, GraduationCap, Mail, Phone, X } from "lucide-react";
 
-// Sample dynamic faculty data
 const facultyData = [
   {
-    id: 1,
     name: "Dr. Ruman Alam",
-    designation: "Dean Academics & HOD",
+    designation: "Academic Head & Dean",
+    image: "images/Ruman.jpg",
+    qualification: "PhD in Computer Science (Stanford University), M.S. in Artificial Intelligence",
+    experience: "12+ Years",
+    about: "Expert in machine learning and computer vision with extensive research experience. Published over 30 papers in top-tier conferences and journals. Currently leading research on explainable AI for healthcare applications.",
+    email: "r.kumar@university.edu",
+    phone: "+1 (555) 123-4567",
     department: "Applied Science",
-    image: "./images/Ruman.jpg",
-    bio: "Ph.D. in Machine Learning from Stanford University. Specializes in AI and Data Science with 15+ years of teaching experience.",
-    email: "ruman.alam@university.edu",
-    phone: "+91 9876543210",
   },
   {
-    id: 2,
     name: "Mr. Abhimanyu Yadav",
-    designation: "HOD",
+    designation: "HOD Mechanical Engineering",
+    image: "images/Abhi sir.png",
+    qualification: "B.Tech (Mechanical Engineering)",
+    experience: "8+ Years",
+    about: "Department Head with extensive research and administrative experience. Specialized in quantum computing and advanced algorithms. Recipient of the National Science Foundation Career Award.",
+    email: "abhimanyu.yadav@university.edu",
     department: "Mechanical Engineering",
-    image: "./images/Abhi sir.png",
-    bio: "B.Tech in Mechanical Engineering with 8+ years of experience.",
-    email: "abhimanyume.tech@gmail.com",
-    phone: "+91 ********",
+  
   },
   {
-    id: 3,
     name: "Mr. Virendra Singh",
-    designation: "HOD",
-    department: "Electrical Engineering",
-    image: "./images/virendra.jpeg",
-    bio: "B.Tech in Electrical Engineering with 6+ years of experience. Specializes in Power Systems and Renewable Energy.",
-    email: "virendrapratap075@gmail.com",
-    phone: "+91 9935715483",
+    designation: "HOD Electrical Engineering",
+    image: "images/virendra.jpeg",
+    qualification: "PhD (Data Science, Carnegie Mellon), M.S. Statistics",
+    experience: "6+ Years",
+    about: "Data Science specialist with industry experience at leading tech firms. Focuses on big data analytics and predictive modeling. Currently consulting for Fortune 500 companies on data strategy.",
+    email: "p.mehta@university.edu",
+   
+ 
   },
   {
-    id: 4,
     name: "Mr. Prince Kumar",
-    designation: "HOD",
-    department: "Computer Science & Engineering",
-    image: "./images/pk.jpg",
-    bio: "Ph.D. in Structural Engineering with 12+ years experience. Awarded Best Faculty 2023.",
-    email: "prince.kumar@university.edu",
-    phone: "+91 9876543213",
+    designation: "HOD Computer Science",
+    image: "images/pk.jpg",
+    qualification: "B.Tech in Computer Science",
+    experience: "03+ Years",
+    about: "Industry professional sharing real-world experience with students. Former CTO at TechCorp with expertise in cloud architecture and scalable systems. Focuses on practical software engineering principles.",
+    email: "r.wilson@university.edu",
   },
   {
-    id: 5,
     name: "Ms. Ankita Yadav",
-    designation: "Lecturer",
-    department: "Computer Science & Engineering",
-    image: "./images/Ankita Yadav.jpg",
-    bio: "Expert in Cybersecurity and Network Systems. Certified Ethical Hacker with industry experience.",
-    email: "ankita.yadav@university.edu",
-    phone: "+91 ********",
+    designation: "Lecturer, Computer Science",
+    image: "images/ankita.jpg",
+    qualification: "MCA",
+    experience: "5+ Years",
+    about: "Medical researcher specializing in biomedical devices. Holds 15 patents in medical technology. Leads interdisciplinary research between engineering and medical schools.",
+    email: "s.johnson@university.edu",
+    phone: "+1 (555) 567-8901",
+    department: "Biomedical Engineering",
+    research: "Medical Devices"
   },
   {
-    id: 6,
     name: "Ms. Shashiprabha Ramji Sharma",
-    designation: "Lecturer",
-    department: "Communication Skills",
-    image: "./images/shashi.jpg",
-    bio: "MBA in HR & Finance.",
-    email: "shashiprabha284@gmail.com",
-    phone: "+91 ********",
-  },
-  {
-    id: 7,
-    name: "Mr. Narendra Singh",
-    designation: "Lecturer",
+    designation: "Associate Professor",
+    image: "images/shashi.jpg",
+    qualification: "MBA",
+    experience: "6+ Years",
+    about: "Expert in robotics and automation systems. Former lead engineer at automotive company. Focuses on sustainable energy solutions and autonomous systems.",
+    email: "m.rodriguez@university.edu",
+    phone: "+1 (555) 678-9012",
     department: "Mechanical Engineering",
-    image: "./images/narendra.jpeg",
-    bio: "Specializes in Power Systems and Renewable Energy. Industry consultant for renewable energy projects.",
-    email: "narendra.singh@university.edu",
-    phone: "+91 ********",
-  },
-  {
-    id: 8,
-    name: "Mr. Ankit Kumar Gupta",
-    designation: "Lecturer",
-    department: "Applied Physics",
-    image: "./images/Ankit sir.jpg",
-    bio: "M.Sc. in Physics with 1.5+ years of teaching experience.",
-    email: "ankit.gupta@cscacademy.org",
-    phone: "+91 *********",
-  },
-  {
-    id: 9,
-    name: "Mr. Abhishek Singh",
-    designation: "Lecturer",
-    department: "Electrical Engineering",
-    image: "./images/abhishek.jpg",
-    bio: "Specializes in Power Systems and Renewable Energy. Expert in smart grid technologies.",
-    email: "abhishek.singh@university.edu",
-    phone: "+91 **********",
-  },
-  {
-    id: 10,
-    name: "Mr. Pradumn Kumar Pandey",
-    designation: "Librarian",
-    department: "Library",
-    image: "./images/pradumn.jpg",
-    bio: "MLIS certified librarian with 3+ years of experience. Digital library management expert.",
-    email: "pradumnpandey20@gmail.com",
-    phone: "+91 8381979937",
-  },
-  {
-    id: 11,
-    name: "Mr. Shubham Sharma",
-    designation: "Lab Assistant",
-    department: "Mechanical Engineering",
-    image: "./images/shubham.jpg",
-    bio: "Specializes in CAD/CAM and manufacturing processes. 4+ years of lab management experience.",
-    email: "shubham.sharma@university.edu",
-    phone: "+91 9876543219",
-  },
-  {
-    id: 12,
-    name: "Mr. Aditya Nath Sharma",
-    designation: "Accountant",
-    department: "Admin Office",
-    image: "./images/Aditya.jpg",
-    bio: "CA certified with 8+ years experience in educational institution finance management.",
-    email: "aditya.sharma@university.edu",
-    phone: "+91 9876543220",
-  },
+    research: "Robotics & Automation"
+  }
 ];
 
 const Faculty = () => {
   const [selectedFaculty, setSelectedFaculty] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Auto-rotate faculty highlights with improved animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % facultyData.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = (faculty) => {
     setSelectedFaculty(faculty);
+    setModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
-    setSelectedFaculty(null);
+    setModalOpen(false);
+    setTimeout(() => setSelectedFaculty(null), 300);
     document.body.style.overflow = 'auto';
   };
 
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') closeModal();
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+
   return (
-    <div className="faculty-page">
-      {/* Header with animated text */}
-      <div className="faculty-header">
-        <h1 className="faculty-title">
-          <span className="title-text">Meet Our</span>
-          <span className="title-highlight">Distinguished Faculty</span>
-        </h1>
-        <p className="faculty-subtitle">
-          Dedicated educators shaping the future of technology and innovation
+    <div className="faculty-premium-container">
+      {/* Header */}
+      <div className="faculty-premium-header">
+        <h1 className="premium-title">Our Faculty</h1>
+        <p className="premium-subtitle">
+          Meet our distinguished educators and researchers dedicated to academic excellence 
+          and innovation across multiple disciplines
         </p>
-        
-        <div className="rotating-highlight">
-          <div className="rotating-text">
-            {facultyData.map((faculty, index) => (
-              <div 
-                key={faculty.id} 
-                className={`rotating-item ${index === currentIndex ? 'active' : ''}`}
-              >
-                <span className="rotating-designation">{faculty.designation}</span>
-                <span className="rotating-separator"> • </span>
-                <span className="rotating-department">{faculty.department}</span>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
-      {/* Faculty Grid - 2 cards per row on mobile */}
-      <div className="faculty-grid">
-        {facultyData.map((faculty) => (
+      {/* Faculty Grid */}
+      <div className="premium-faculty-grid">
+        {facultyData.map((faculty, index) => (
           <div 
-            className="faculty-card" 
-            key={faculty.id}
+            key={index}
+            className="premium-faculty-card"
             onClick={() => openModal(faculty)}
-            onKeyDown={(e) => e.key === 'Enter' && openModal(faculty)}
-            tabIndex={0}
-            role="button"
-            aria-label={`View details of ${faculty.name}`}
           >
-            <div className="card-image">
-              <img 
-                src={faculty.image} 
-                alt={faculty.name}
-                loading="lazy"
-                onError={(e) => {
-                  e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+CjxwYXRoIGQ9Ik01MCA3NUwxMDAgMTI1TDE1MCA3NSIgc3Ryb2tlPSIjNjQ3NDhCIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iNjAiIHI9IjIwIiBmaWxsPSIjNjQ3NDhCIi8+Cjwvc3ZnPgo=';
-                }}
-              />
-              <div className="dept-badge">{faculty.department}</div>
-              <div className="image-overlay"></div>
+            <div className="card-image-premium">
+              <img src={faculty.image} alt={faculty.name} />
+              <div className="profile-badge">
+                <Award size={14} />
+                <span>{faculty.experience}</span>
+              </div>
             </div>
-            <div className="card-content">
-              <h3 className="faculty-name">{faculty.name}</h3>
-              <p className="faculty-designation">{faculty.designation}</p>
+            
+            <div className="card-content-premium">
+              <h3 className="faculty-name-premium">{faculty.name}</h3>
+              <p className="faculty-designation-premium">{faculty.designation}</p>
               
+              
+
             </div>
           </div>
         ))}
       </div>
 
-      {/* Stats Bar */}
-      <div className="stats-bar">
-        <div className="stat-item">
-          <span className="stat-number">{facultyData.length}+</span>
+      {/* Stats Section */}
+      <div className="stats-bar-premium">
+        <div className="stat-item-premium-bar">
+          <span className="stat-number">{facultyData.length}</span>
           <span className="stat-label">Faculty Members</span>
         </div>
         <div className="stat-divider"></div>
-        <div className="stat-item">
+        <div className="stat-item-premium-bar">
           <span className="stat-number">6+</span>
           <span className="stat-label">Departments</span>
         </div>
         <div className="stat-divider"></div>
-        <div className="stat-item">
+        <div className="stat-item-premium-bar">
           <span className="stat-number">100%</span>
-          <span className="stat-label">Qualified</span>
+          <span className="stat-label">PhD Qualified</span>
+        </div>
+        <div className="stat-divider"></div>
+        <div className="stat-item-premium-bar">
+          <span className="stat-number">75+</span>
+          <span className="stat-label">Research Papers</span>
         </div>
       </div>
 
-      {/* Modal for detailed view */}
+      {/* Modal */}
       {selectedFaculty && (
-        <div className="faculty-modal">
-          <div className="modal-overlay" onClick={closeModal}></div>
-          <div className="modal-card">
-            <button 
-              className="modal-close" 
-              onClick={closeModal}
-              aria-label="Close modal"
-            >
-              ×
-            </button>
-            
-            <div className="modal-header">
-              <div className="modal-image">
+        <div className={`premium-modal-overlay ${modalOpen ? 'open' : ''}`} onClick={closeModal}>
+          <div className="premium-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-premium">
+              <div className="modal-image-container">
                 <img 
                   src={selectedFaculty.image} 
                   alt={selectedFaculty.name}
-                  onError={(e) => {
-                    e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjBGMEYwIi8+CjxwYXRoIGQ9Ik01MCA3NUwxMDAgMTI1TDE1MCA3NSIgc3Ryb2tlPSIjNjQ3NDhCIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iNjAiIHI9IjIwIiBmaWxsPSIjNjQ3NDhCIi8+Cjwvc3ZnPgo=';
-                  }}
+                  className="modal-image-premium"
                 />
-              </div>
-              <div className="modal-info">
-                <h3>{selectedFaculty.name}</h3>
-                <p className="modal-designation">{selectedFaculty.designation}</p>
-                <p className="modal-department">
-                  <span className="dept-icon">🏛️</span>
-                  {selectedFaculty.department}
-                </p>
-              </div>
-            </div>
-
-            <div className="modal-body">
-              <div className="modal-section">
-                <h4>
-                  <span className="section-icon">📖</span>
-                  About
-                </h4>
-                <p>{selectedFaculty.bio}</p>
+             
               </div>
               
-              <div className="modal-section contact-section">
-                <h4>
-                  <span className="section-icon">📞</span>
-                  Contact Information
-                </h4>
-                <div className="contact-info">
+              <div className="modal-header-content">
+                <h2 className="modal-name-premium">{selectedFaculty.name}</h2>
+                <p className="modal-designation-premium">{selectedFaculty.designation}</p>
+                
+                <div className="modal-contact">
                   <div className="contact-item">
-                    <div className="contact-icon-container">
-                      <span className="contact-icon">📧</span>
-                    </div>
-                    <div className="contact-details">
-                      <span className="contact-label">Email</span>
-                      <a 
-                        href={`mailto:${selectedFaculty.email}`}
-                        className="contact-value email-link"
-                      >
-                        {selectedFaculty.email}
-                      </a>
-                    </div>
+                    <Briefcase size={20} />
+                    <span>{selectedFaculty.experience} Teaching & Research Experience</span>
                   </div>
                   <div className="contact-item">
-                    <div className="contact-icon-container">
-                      <span className="contact-icon">📱</span>
-                    </div>
-                    <div className="contact-details">
-                      <span className="contact-label">Phone</span>
-                      <a 
-                        href={`tel:${selectedFaculty.phone.replace(/\s/g, '')}`}
-                        className="contact-value phone-link"
-                      >
-                        {selectedFaculty.phone}
-                      </a>
-                    </div>
+                    <Mail size={20} />
+                    <span>{selectedFaculty.email}</span>
+                  </div>
+                  <div className="contact-item">
+                    <Phone size={20} />
+                    <span>{selectedFaculty.phone}</span>
                   </div>
                 </div>
               </div>
+              
+              <button className="modal-close-premium" onClick={closeModal}>
+                <X size={24} />
+              </button>
             </div>
-
-           
+            
+            <div className="modal-content-premium">
+              <div className="modal-section">
+                <h3 className="section-title-premium">
+                  <BookOpen size={20} />
+                  Qualifications
+                </h3>
+                <p className="qualification-text">{selectedFaculty.qualification}</p>
+              </div>
+              
+              <div className="modal-section">
+                <h3 className="section-title-premium">
+                  <Award size={20} />
+                  Research Focus
+                </h3>
+                <p className="about-text">{selectedFaculty.research} - {selectedFaculty.about}</p>
+              </div>
+              
+              <div className="modal-section">
+                <h3 className="section-title-premium">
+                  <Globe size={20} />
+                  Department
+                </h3>
+                <p className="about-text">{selectedFaculty.department}</p>
+              </div>
+              
+              <div className="modal-actions-premium">
+                <button className="action-btn primary-btn">
+                  <Mail size={20} />
+                  Send Email
+                </button>
+                <button className="action-btn secondary-btn">
+                  <Calendar size={20} />
+                  Schedule Office Hours
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

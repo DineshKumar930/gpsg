@@ -40,27 +40,27 @@ const coursesData = [
 const Courses = () => {
   const navigate = useNavigate();
   return (
-    <div className="courses-page">
-      <h1 className="courses-title">Our Courses</h1>
-      <div className="courses-container">
+    <div className="courses-page-c">
+      <h1 className="courses-title-c">Our Courses</h1>
+      <div className="courses-container-c">
         {coursesData.map((course) => (
           <div
-            className={`course-card ${
+            className={`course-card-c ${
               course.status === "Upcoming" ? "upcoming" : ""
             }`}
             key={course.id}
           >
-            <div className="course-image">
+            <div className="course-image-c">
               <img src={course.image} alt={course.name} />
               {course.status === "Upcoming" && (
-                <span className="badge">Upcoming</span>
+                <span className="badge-c">Upcoming</span>
               )}
             </div>
-            <div className="course-info">
+            <div className="course-info-c">
               <h3>{course.name}</h3>
               <p>{course.description}</p>
               {course.status === "Running" && (
-                <button className="btn-enroll" onClick={() => navigate("/admission")}>Enroll Now</button>
+                <button className="btn-enroll-c" onClick={() => navigate("/admission")}>Enroll Now</button>
               )}
             </div>
           </div>

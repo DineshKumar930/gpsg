@@ -1,14 +1,16 @@
 import "./HeroSection.css";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="hero-section">
       <div className="container">
         <div className="hero-content">
          <div className="hero-text">
   <h1 className="hero-title animate-line delay-1">
-    राजकीय पॉलिटेक्निक सहजनवां
+    राजकीय पॉलिटेक्निक सहजनवां गोरखपुर
   </h1>
 
   <p className="hero-tagline typing">
@@ -21,8 +23,8 @@ const HeroSection = () => {
     </p>
 
   <div className="hero-buttons animate-line delay-4">
-    <a href="/admissions" className="btn btn-primary">Apply Now</a>
-    <a href="/about" className="btn btn-secondary">Learn More</a>
+    <a  onClick={() => navigate("/admission")} className="btn btn-primary">Apply Now</a>
+    <a  onClick={() => navigate("/about")}className="btn btn-secondary">Learn More</a>
   </div>
 </div>
 
