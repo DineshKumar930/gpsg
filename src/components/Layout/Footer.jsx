@@ -100,7 +100,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="copyright">
-          <p>&copy; {new Date().getFullYear()} Government Polytechnic Sahjanwa Gorakhpur. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Government Polytechnic Sahjanwa Gorakhpur. All rights reserved. Develop & Design by: <strong>Dinesh Roy & Prince Roy</strong></p>
           <div className="legal-links">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
